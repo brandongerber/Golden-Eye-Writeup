@@ -25,7 +25,7 @@ Next, I checked the **source code of the website** and found some comments:
 
 
 Based on this, I assumed "boris" was a **username**, and I found an encoded password in the comments:  
-&#73;&#110;&#118;&#105;&#110;&#99;&#105;&#98;&#108;&#101;&#72;&#97;&#99;&#107;&#51;&#114;
+` &#73;&#110;&#118;&#105;&#110;&#99;&#105;&#98;&#108;&#101;&#72;&#97;&#99;&#107;&#51;&#114; `
 
 ### **1.3 Decoding Password**
 
