@@ -3,7 +3,7 @@
 Task 1: Intro and Enumeration
 
 I began by scanning the target machine using nmap to identify open ports:
-nmap -n -v -sT -p- -T5 <IP>
+nmap -n -v -sT -p- -T5 'IP'
 This revealed 4 open ports. 
 
 I decided to check the source code of the website found some comments:
