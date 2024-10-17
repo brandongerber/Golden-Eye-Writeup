@@ -42,7 +42,6 @@ I tried logging in via **telnet** to the **POP3 service on port 55007**, but the
 
 hydra -l boris -P <path_to_password_list> <IP> -s 55007 pop3
 
-markdown
 
 
 This successfully found the password:  
