@@ -1,5 +1,3 @@
-markdown
-Copy code
 # **Golden-Eye Writeup by Brandon Gerber**
 
 ---
@@ -12,7 +10,7 @@ I began by scanning the target machine using `nmap` to identify open ports:
 
 nmap -n -v -sT -p- -T5 <IP>
 
-markdown
+
 
 
 This revealed **4 open ports**.
@@ -56,7 +54,7 @@ I then logged in via telnet:
 
 telnet <IP> 55007 user boris pass secret1!
 
-mathematica
+
 
 
 After logging in, I listed and retrieved the emails using `retr <email num>`, revealing another username, **"Xenia."**
